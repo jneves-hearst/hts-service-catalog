@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState, FormEvent } from "react"
-import { useRouter } from "next/navigation"
 import { Lock } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
@@ -11,7 +10,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -26,8 +24,8 @@ export default function LoginPage() {
       })
 
       if (res.ok) {
-        router.push("/admin")
-        router.refresh()
+        window.location.href = "/admin"
+        return
       } else {
         setError("Incorrect password. Please try again.")
       }
