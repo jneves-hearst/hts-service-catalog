@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import Image from "next/image"
 import { readServices } from "@/lib/services"
 import { CatalogClient } from "@/components/catalog/CatalogClient"

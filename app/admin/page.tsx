@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { readServices } from "@/lib/services"
 import { AdminDashboardClient } from "@/components/admin/AdminDashboardClient"
 
