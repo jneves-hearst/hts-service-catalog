@@ -1,0 +1,1683 @@
+[
+  {
+    "id": "active-directory",
+    "name": "Active Directory Services 2",
+    "category": "Identity & Access",
+    "tags": [
+      "identity",
+      "directory",
+      "authentication",
+      "sso",
+      "azure",
+      "entra"
+    ],
+    "serviceType": "Platform",
+    "icon": "Users",
+    "owner": {
+      "name": "Mark Dowden",
+      "email": "Mark.Dowden@Hearst.com"
+    },
+    "summary": "Secure, reliable, and scalable authentication for all Hearst staff, with directory infrastructure spanning US and UK across on-premises and cloud environments synchronized with Microsoft Entra ID.",
+    "features": [
+      {
+        "name": "Centralized Management",
+        "description": "Single pane of glass for managing user accounts, groups, and policies across all Hearst environments."
+      },
+      {
+        "name": "Security",
+        "description": "Role-based access controls, password policies, and integration with MFA to protect against unauthorized access."
+      },
+      {
+        "name": "Standardization",
+        "description": "Consistent naming conventions, group structures, and policy baselines across all business units."
+      },
+      {
+        "name": "Automation & Streamlining",
+        "description": "Automated provisioning and deprovisioning workflows to reduce manual effort and human error."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Continuous monitoring of directory health with around-the-clock support for critical issues."
+      },
+      {
+        "name": "Backup and Disaster Recovery",
+        "description": "Regular backups with RTO of 4 hours and RPO of 4 hours to ensure business continuity."
+      },
+      {
+        "name": "Enhanced Collaboration",
+        "description": "Centralized authentication enabling seamless access to shared resources across Hearst business units."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour (critical)",
+      "resolutionTime": "4h Critical / 8h High / 24h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Mark.Dowden@Hearst.com",
+      "team": "Identity & Access Management"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2026-04-16T16:03:16.727Z"
+  },
+  {
+    "id": "active-web-protection",
+    "name": "Active Web Protection",
+    "category": "Security",
+    "tags": [
+      "security",
+      "waf",
+      "ddos",
+      "web",
+      "firewall",
+      "bot management"
+    ],
+    "serviceType": "Program",
+    "icon": "Globe",
+    "owner": {
+      "name": "Diana Schnabel",
+      "email": "Diana.Schnabel@Hearst.com"
+    },
+    "summary": "Secures the application layer against modern cyber threats by defending against malicious traffic, injection attempts, DDoS campaigns, and business logic abuse to protect sensitive data and maintain business operations.",
+    "features": [
+      {
+        "name": "Advanced Web Application Firewall (WAF)",
+        "description": "Deployment and tuning of WAF rules to block OWASP Top 10 and emerging web attack vectors."
+      },
+      {
+        "name": "Custom Security Rules and Policies",
+        "description": "Tailored rule sets built around specific application behaviors and threat profiles."
+      },
+      {
+        "name": "DDoS Defense & Application Availability",
+        "description": "Volumetric and application-layer DDoS mitigation to maintain uptime under attack."
+      },
+      {
+        "name": "Content Filtering",
+        "description": "Policy-driven filtering of malicious or unauthorized content before it reaches backend systems."
+      },
+      {
+        "name": "Bot Management",
+        "description": "Detection and mitigation of automated bot traffic including scrapers, credential stuffers, and fraud bots."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "Diana.Schnabel@Hearst.com",
+      "team": "Vulnerability Management"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "application-development",
+    "name": "Application Development",
+    "category": "Applications",
+    "tags": [
+      "development",
+      "web",
+      "cms",
+      "crm",
+      "aws",
+      "liferay",
+      "dynamics365"
+    ],
+    "serviceType": "Platform",
+    "icon": "Code2",
+    "owner": {
+      "name": "Jayesh Gandhi",
+      "email": "Jayesh.Gandhi@Hearst.com"
+    },
+    "summary": "End-to-end analysis, development, QA, and production support for web applications, CMS (Liferay), CRM (Dynamics 365), and enterprise integrations leveraging AWS-certified developers and cloud-native technologies.",
+    "features": [
+      {
+        "name": "Liferay CMS Development",
+        "description": "Full lifecycle CMS development and support on the Liferay platform for enterprise web properties."
+      },
+      {
+        "name": "Web & Cloud-Native Application Development",
+        "description": "Modern web applications built on AWS using cloud-native architectures and best practices."
+      },
+      {
+        "name": "Systems Integration",
+        "description": "API and middleware integrations connecting disparate enterprise systems and data sources."
+      },
+      {
+        "name": "CRM Solutions – Microsoft Dynamics 365",
+        "description": "Implementation, customization, and support for Dynamics 365 for Sales across business units."
+      },
+      {
+        "name": "Production Support & Maintenance",
+        "description": "Ongoing monitoring, bug fixes, and performance tuning for deployed applications."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "HTSEnterpriseApps@Hearst.com",
+      "team": "Enterprise Apps"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "automated-infrastructure",
+    "name": "Automated Infrastructure Service Management",
+    "category": "Cloud & Infrastructure",
+    "tags": [
+      "automation",
+      "chef",
+      "infrastructure-as-code",
+      "devops",
+      "compliance"
+    ],
+    "serviceType": "Platform",
+    "icon": "Settings2",
+    "owner": {
+      "name": "Jason Boulware",
+      "email": "Jason.Boulware@hearst.com"
+    },
+    "summary": "Secure and compliant management of server and application infrastructure through Chef-as-a-Service, enabling infrastructure-as-code automation for deployment and management across any location.",
+    "features": [
+      {
+        "name": "Org Setup & Management",
+        "description": "Onboarding and organizational structure management within the Chef platform."
+      },
+      {
+        "name": "Chef Automate",
+        "description": "Visibility and compliance dashboards for infrastructure state and policy adherence."
+      },
+      {
+        "name": "Chef Infra Server",
+        "description": "Central policy repository for infrastructure configuration management at scale."
+      },
+      {
+        "name": "MFA and SSO via Okta",
+        "description": "Secure access to the platform enforced through multi-factor authentication and single sign-on."
+      },
+      {
+        "name": "Security Compliance",
+        "description": "Continuous policy enforcement aligned to Hearst security standards."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Around-the-clock infrastructure monitoring with rapid incident response."
+      },
+      {
+        "name": "Backup and Disaster Recovery",
+        "description": "Automated backups and tested recovery procedures for infrastructure configuration."
+      },
+      {
+        "name": "User Training and Adoption",
+        "description": "Onboarding sessions and documentation to enable teams to self-serve on the platform."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour",
+      "resolutionTime": "8h Critical / 24h High / 48h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "hts_automation_team@hearst.com",
+      "team": "Automation Team"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "business-process-design",
+    "name": "Business Process Design",
+    "category": "Business Operations",
+    "tags": [
+      "process",
+      "consulting",
+      "improvement",
+      "optimization",
+      "training"
+    ],
+    "serviceType": "Consulting",
+    "icon": "GitBranch",
+    "owner": {
+      "name": "Marc Zukerman",
+      "email": "HTS-ProcessDesign@Hearst.com"
+    },
+    "summary": "Process improvement, resource optimization, and risk reduction services for business operations through assessment, gap analysis, value stream mapping, and targeted training.",
+    "features": [
+      {
+        "name": "Process Engineering & Improvement",
+        "description": "Structured analysis and redesign of business processes to eliminate waste and improve efficiency."
+      },
+      {
+        "name": "Value Stream Mapping",
+        "description": "Visual mapping of end-to-end workflows to identify bottlenecks and improvement opportunities."
+      },
+      {
+        "name": "Training",
+        "description": "Targeted training sessions to embed new process behaviors and drive adoption across teams."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "5 business days",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, business hours"
+    },
+    "contact": {
+      "email": "HTS-ProcessDesign@Hearst.com",
+      "team": "Process Design"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "circuits-service",
+    "name": "Circuits Service",
+    "category": "Network",
+    "tags": [
+      "network",
+      "internet",
+      "circuits",
+      "wan",
+      "connectivity",
+      "voip"
+    ],
+    "serviceType": "Platform",
+    "icon": "Wifi",
+    "owner": {
+      "name": "Rich Timmins",
+      "email": "ETNetworkServices@Hearst.com"
+    },
+    "summary": "Business internet circuit options with guidance on speeds, technologies, service provider SLAs, and pricing to help businesses understand and procure the right connectivity for their operations.",
+    "features": [
+      {
+        "name": "Dedicated Internet Access (DIA)",
+        "description": "Symmetrical, uncontended fiber internet with guaranteed bandwidth for mission-critical locations."
+      },
+      {
+        "name": "Cable Modem Internet",
+        "description": "Cost-effective broadband connectivity for locations with lighter bandwidth requirements."
+      },
+      {
+        "name": "Satellite (Starlink)",
+        "description": "High-speed satellite connectivity for remote locations without fiber infrastructure."
+      },
+      {
+        "name": "Fixed Wireless",
+        "description": "Wireless last-mile connectivity for locations where fiber installation is impractical."
+      },
+      {
+        "name": "Business Continuity Solutions",
+        "description": "Redundant circuit configurations and failover options to maintain connectivity during outages."
+      },
+      {
+        "name": "WAN Solutions",
+        "description": "Enterprise WAN design and management connecting multiple Hearst locations."
+      },
+      {
+        "name": "VoIP",
+        "description": "Voice over IP solutions integrated with network circuits for unified communications."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour",
+      "resolutionTime": "4h Critical / 8h High / 24h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "ETNetworkServices@Hearst.com",
+      "team": "Network Services"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cloud-center-of-excellence",
+    "name": "Cloud Center of Excellence",
+    "category": "Cloud & Infrastructure",
+    "tags": [
+      "cloud",
+      "aws",
+      "azure",
+      "gcp",
+      "finops",
+      "governance",
+      "terraform"
+    ],
+    "serviceType": "Program",
+    "icon": "Cloud",
+    "owner": {
+      "name": "Steven Craig",
+      "email": "CCOE@Hearst.com"
+    },
+    "summary": "A centralized program governing cloud economics, enablement, and governance across Hearst, managing public cloud investments, providing architecture consulting, and driving cloud adoption best practices since October 2021.",
+    "features": [
+      {
+        "name": "Cloud Economics",
+        "description": "Management of Reserved Instances, Savings Plans, Enterprise Discount Programs, and monthly FinOps reviews to optimize cloud spend across AWS, Azure, and GCP."
+      },
+      {
+        "name": "Cloud Enablement",
+        "description": "Community meetings, office hours for Terraform and IAM, Innovation Days, and AWS training programs to accelerate cloud adoption."
+      },
+      {
+        "name": "Cloud Governance",
+        "description": "Well-architected reviews, IAM policy management, GitHub governance, and cloud migration planning."
+      },
+      {
+        "name": "Cloud Architecture Consulting",
+        "description": "Expert advisory on cloud architecture best practices, migration strategies, and technology selection."
+      },
+      {
+        "name": "FinOps Tooling",
+        "description": "Curated dashboards, anomaly alerts, and cross-service cost reports via the cloud FinOps platform."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, business hours"
+    },
+    "contact": {
+      "email": "CCOE@Hearst.com",
+      "team": "Cloud Center of Excellence"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "compliance-management",
+    "name": "Compliance Management & Certification Support",
+    "category": "Security",
+    "tags": [
+      "compliance",
+      "pci",
+      "audit",
+      "regulatory",
+      "certification",
+      "governance"
+    ],
+    "serviceType": "Program",
+    "icon": "ClipboardCheck",
+    "owner": {
+      "name": "Frank LoDestro",
+      "email": "Frank.LoDestro@Hearst.com"
+    },
+    "summary": "Compliance and certification support services to help organizations monitor, manage, and ensure adherence to regulatory requirements while minimizing operational and reputational risks.",
+    "features": [
+      {
+        "name": "Regulatory Monitoring",
+        "description": "Continuous tracking of regulatory changes across frameworks relevant to Hearst business units."
+      },
+      {
+        "name": "Audits and Monitoring",
+        "description": "Internal and external audit support including evidence collection and control testing."
+      },
+      {
+        "name": "Technology Integration",
+        "description": "Integration of compliance tooling with existing IT systems for automated evidence gathering."
+      },
+      {
+        "name": "PCI Gap Analysis",
+        "description": "Assessment of current state against PCI DSS requirements with remediation roadmaps."
+      },
+      {
+        "name": "Remediation Guidance",
+        "description": "Expert guidance on closing compliance gaps and implementing compensating controls."
+      },
+      {
+        "name": "Assessment Preparation",
+        "description": "End-to-end support for preparing teams and documentation for formal compliance assessments."
+      },
+      {
+        "name": "Ongoing Support",
+        "description": "Continuous advisory support to maintain compliance posture between formal assessments."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "Frank.LoDestro@Hearst.com",
+      "team": "Hearst Compliance"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "data-management",
+    "name": "Data Management",
+    "category": "Data",
+    "tags": [
+      "data",
+      "integration",
+      "etl",
+      "governance",
+      "metadata",
+      "quality",
+      "gdpr"
+    ],
+    "serviceType": "Platform",
+    "icon": "Database",
+    "owner": {
+      "name": "Theodora Bakker",
+      "email": "Theodora.Bakker@Hearst.com"
+    },
+    "summary": "Enterprise-wide hub for managing, processing, and securing data assets through data integration platforms, modeling, metadata management, quality validation, and controlled vocabulary services.",
+    "features": [
+      {
+        "name": "Data Integration & Platforms",
+        "description": "End-to-end integration solutions connecting disparate systems with seamless, accurate, and secure data flow supporting analytics, operations, and decision-making."
+      },
+      {
+        "name": "Data Modeling",
+        "description": "Logical and physical data structure design optimized for efficient storage, integration, and retrieval."
+      },
+      {
+        "name": "Metadata Management",
+        "description": "Data cataloging, classification, and metadata best practices with governance standards tailored to business needs."
+      },
+      {
+        "name": "Data Quality and Validation",
+        "description": "Detection, prevention, and resolution of data inaccuracies to ensure trusted and reliable information across systems."
+      },
+      {
+        "name": "Controlled Vocabulary & Classification",
+        "description": "Taxonomy design and management services providing meaningful and scalable structure for content discovery and usage."
+      }
+    ],
+    "sla": {
+      "availability": "99.0% (when Informatica is deployed)",
+      "responseTime": "Tier dependent",
+      "resolutionTime": "Tier dependent",
+      "supportHours": "Tier dependent"
+    },
+    "contact": {
+      "email": "Theodora.Bakker@Hearst.com",
+      "team": "Data Management"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "dspm",
+    "name": "Data Security Posture Management (DSPM)",
+    "category": "Security",
+    "tags": [
+      "security",
+      "data",
+      "classification",
+      "cloud",
+      "saas",
+      "risk",
+      "compliance"
+    ],
+    "serviceType": "Program",
+    "icon": "ScanSearch",
+    "owner": {
+      "name": "Diana Schnabel",
+      "email": "Diana.Schnabel@Hearst.com"
+    },
+    "summary": "Continuous data discovery, classification, and risk evaluation for sensitive data across cloud, SaaS, and on-premises repositories, mapping data location, access, and usage to reduce business risk without disrupting operations.",
+    "features": [
+      {
+        "name": "Continuous Data Discovery & Classification",
+        "description": "Automated scanning and classification of sensitive data across all repositories, cloud environments, and SaaS platforms."
+      },
+      {
+        "name": "Exposure & Access Analytics",
+        "description": "Identification of over-exposed data, excessive permissions, and access anomalies that create risk."
+      },
+      {
+        "name": "Remediation Assistance",
+        "description": "Guided remediation workflows to address data exposure findings in priority order."
+      },
+      {
+        "name": "Compliance-Ready Reporting",
+        "description": "Pre-built reports aligned to GDPR, CCPA, HIPAA, and other regulatory frameworks."
+      },
+      {
+        "name": "Continuous Monitoring and Governance",
+        "description": "Ongoing posture monitoring with alerts for new sensitive data discoveries and policy violations."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "Diana.Schnabel@Hearst.com",
+      "team": "Vulnerability Management"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "dast",
+    "name": "Dynamic Application Security Testing",
+    "category": "Security",
+    "tags": [
+      "security",
+      "appsec",
+      "testing",
+      "vulnerability",
+      "web",
+      "dast"
+    ],
+    "serviceType": "Program",
+    "icon": "Bug",
+    "owner": {
+      "name": "Diana Schnabel",
+      "email": "Diana.Schnabel@Hearst.com"
+    },
+    "summary": "Automated, real-time analysis of compiled web applications in live environments to identify vulnerabilities by simulating external attacker behavior and discovering weaknesses before they can be exploited.",
+    "features": [
+      {
+        "name": "Live Application Analysis",
+        "description": "Dynamic scanning of running applications to find vulnerabilities that only appear at runtime."
+      },
+      {
+        "name": "Simulated Cyber Attacks",
+        "description": "Controlled attack simulations covering injection, authentication bypass, and other OWASP Top 10 attack types."
+      },
+      {
+        "name": "Comprehensive Vulnerability Coverage",
+        "description": "Detection of a wide range of vulnerability classes including XSS, SQLi, SSRF, and business logic flaws."
+      },
+      {
+        "name": "Browser-based Testing",
+        "description": "Full browser automation to test JavaScript-heavy single-page applications and complex user flows."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "Diana.Schnabel@Hearst.com",
+      "team": "Vulnerability Management"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "dynamics-365-training",
+    "name": "Dynamics 365 Training",
+    "category": "Applications",
+    "tags": [
+      "training",
+      "dynamics365",
+      "crm",
+      "microsoft",
+      "sales"
+    ],
+    "serviceType": "Consulting",
+    "icon": "BookOpen",
+    "owner": {
+      "name": "Lisa Dasher",
+      "email": "Lisa.Dasher@Hearst.com"
+    },
+    "summary": "Supports employees in adopting and effectively using Dynamics 365 for Sales through targeted training, clear communication, and easy-to-access resources via virtual instructor-led sessions and documentation.",
+    "features": [
+      {
+        "name": "Instructor-Led Training",
+        "description": "Virtual instructor-led sessions tailored to specific roles and use cases within Dynamics 365 for Sales."
+      },
+      {
+        "name": "End-User Training Resources & Documentation",
+        "description": "Self-service documentation, guides, and reference materials for ongoing learning and onboarding."
+      },
+      {
+        "name": "End-User Communications",
+        "description": "Targeted communications to inform users of new features, updates, and training opportunities."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, business hours"
+    },
+    "contact": {
+      "email": "Lisa.Dasher@Hearst.com",
+      "team": "Training"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "endpoint-protection",
+    "name": "Endpoint Protection",
+    "category": "Security",
+    "tags": [
+      "security",
+      "endpoint",
+      "antivirus",
+      "edr",
+      "ransomware",
+      "compliance"
+    ],
+    "serviceType": "Program",
+    "icon": "ShieldAlert",
+    "owner": {
+      "name": "Eric Amos",
+      "email": "SecurityArchitecture@Hearst.com"
+    },
+    "summary": "Comprehensive endpoint defense through next-generation antivirus, exploit prevention, file integrity monitoring, USB device control, and host hygiene enforcement to protect against malware, ransomware, and advanced attacks.",
+    "features": [
+      {
+        "name": "Managed Antivirus and Malware Protection",
+        "description": "Proactive defense through continuous monitoring, signature updates, and expert management of endpoint security tools."
+      },
+      {
+        "name": "Managed Endpoint Detection and Response",
+        "description": "Advanced endpoint monitoring and analysis for real-time threat detection, investigation, and response."
+      },
+      {
+        "name": "Ransomware Protection",
+        "description": "Enhanced safeguards to detect, block, and contain ransomware attacks before encryption occurs."
+      },
+      {
+        "name": "Endpoint Security Hygiene Monitoring",
+        "description": "Ongoing assessment of endpoint configurations with actionable recommendations to reduce attack surface."
+      },
+      {
+        "name": "USB Device and Firewall Control",
+        "description": "Policy enforcement and access controls to assist in meeting compliance requirements."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "SecurityArchitecture@Hearst.com",
+      "team": "Security Architecture"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "ethical-hacking",
+    "name": "Ethical Hacking",
+    "category": "Security",
+    "tags": [
+      "security",
+      "pentest",
+      "red team",
+      "vulnerability",
+      "hacking",
+      "offensive"
+    ],
+    "serviceType": "Program",
+    "icon": "Target",
+    "owner": {
+      "name": "Diana Schnabel",
+      "email": "Diana.Schnabel@Hearst.com"
+    },
+    "summary": "A proactive cybersecurity initiative that uncovers weaknesses in IT environments by leveraging certified ethical hackers to simulate threat actor behavior and reveal vulnerabilities before adversaries can exploit them.",
+    "features": [
+      {
+        "name": "Tailored Engagements",
+        "description": "Custom scoped penetration tests aligned to specific business risks and technology stacks."
+      },
+      {
+        "name": "Proactive Threat Simulation",
+        "description": "Controlled simulations of real-world attack techniques including social engineering, phishing, and exploitation."
+      },
+      {
+        "name": "Adversary Perspective Insights",
+        "description": "Findings presented from an attacker's viewpoint to help teams understand real-world exploitability."
+      },
+      {
+        "name": "Enhanced Security Awareness",
+        "description": "Post-engagement briefings that improve security culture and awareness across targeted teams."
+      },
+      {
+        "name": "Actionable Remediation Guidance",
+        "description": "Prioritized remediation plans with technical detail sufficient for immediate engineering action."
+      },
+      {
+        "name": "Regulatory & Competitive Assurance",
+        "description": "Documented evidence of proactive testing to support compliance requirements and auditor inquiries."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "Diana.Schnabel@Hearst.com",
+      "team": "Vulnerability Management"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "hashicorp-cloud-platform",
+    "name": "Hashicorp Cloud Platform",
+    "category": "Cloud & Infrastructure",
+    "tags": [
+      "terraform",
+      "vault",
+      "secrets",
+      "iac",
+      "infrastructure-as-code",
+      "hashicorp"
+    ],
+    "serviceType": "Platform",
+    "icon": "Box",
+    "owner": {
+      "name": "Jason Boulware",
+      "email": "Jason.Boulware@hearst.com"
+    },
+    "summary": "Access to Hashicorp's full suite of products including Terraform Cloud, Vault, Boundary, Packer, and more for infrastructure-as-code, secrets management, and cloud platform operations across Hearst.",
+    "features": [
+      {
+        "name": "Terraform",
+        "description": "Infrastructure-as-code platform for provisioning and managing cloud and on-premises resources consistently."
+      },
+      {
+        "name": "Vault",
+        "description": "Secrets management, encryption as a service, and privileged access management for sensitive credentials."
+      },
+      {
+        "name": "Vault Radar",
+        "description": "Automated scanning to detect secrets accidentally committed to code repositories."
+      },
+      {
+        "name": "Vault Secrets",
+        "description": "Centralized secrets storage with dynamic secret generation and lease management."
+      },
+      {
+        "name": "MFA and SSO",
+        "description": "Secure platform access enforced through Okta-integrated multi-factor authentication and single sign-on."
+      },
+      {
+        "name": "24/7 Support",
+        "description": "Around-the-clock support with tiered response times for urgent and routine requests."
+      },
+      {
+        "name": "User Training and Adoption",
+        "description": "Onboarding sessions and office hours to enable engineering teams to self-serve on HCP products."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "1h Urgent / 4h High / 8h Normal",
+      "resolutionTime": "4h Urgent / 8h High / 72h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "HTS_Automation_Team@Hearst.com",
+      "team": "Automation Team"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "identity-service",
+    "name": "Identity Service",
+    "category": "Identity & Access",
+    "tags": [
+      "identity",
+      "sso",
+      "mfa",
+      "okta",
+      "lifecycle",
+      "access",
+      "onboarding"
+    ],
+    "serviceType": "Platform",
+    "icon": "UserCheck",
+    "owner": {
+      "name": "Einav Sharon",
+      "email": "Einav.Sharon@Hearst.com"
+    },
+    "summary": "Secure, scalable workforce identity and access management across Hearst, managing the full lifecycle of user accounts from onboarding through offboarding with enterprise SSO and MFA protection.",
+    "features": [
+      {
+        "name": "End-to-End Identity Lifecycle Management",
+        "description": "Automated user provisioning, role assignments, and deprovisioning across all connected applications."
+      },
+      {
+        "name": "Enterprise & Division SSO with MFA",
+        "description": "Single sign-on access to all enterprise applications protected by multi-factor authentication."
+      },
+      {
+        "name": "Automated On/Offboarding",
+        "description": "Birthright role assignments triggered by HR events to ensure day-one access and immediate offboarding."
+      },
+      {
+        "name": "Access Governance & Reporting",
+        "description": "Access certification campaigns, role mining, and compliance reporting for audit readiness."
+      },
+      {
+        "name": "Technical Support",
+        "description": "Expert support for identity-related issues with defined SLAs for critical and routine requests."
+      },
+      {
+        "name": "M&A Acceleration",
+        "description": "Rapid identity integration playbooks for mergers and acquisitions to accelerate workforce onboarding."
+      }
+    ],
+    "sla": {
+      "availability": "99.99%",
+      "responseTime": "Within 2 hours",
+      "resolutionTime": "4h Critical / 8h High / 24h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Einav.Sharon@Hearst.com",
+      "team": "Identity"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "infosec-policy-governance",
+    "name": "Information Security Policy & Governance",
+    "category": "Security",
+    "tags": [
+      "security",
+      "policy",
+      "governance",
+      "awareness",
+      "training",
+      "phishing",
+      "grc"
+    ],
+    "serviceType": "Program",
+    "icon": "ScrollText",
+    "owner": {
+      "name": "Faiza Faruque",
+      "email": "GRC@Hearst.com"
+    },
+    "summary": "Comprehensive management of information security policies and organizational guidelines, ensuring consistent oversight and maintenance of core corporate policies while driving security awareness through training and campaigns.",
+    "features": [
+      {
+        "name": "Corporate Standards and Guidelines Support",
+        "description": "Development and maintenance of enterprise-wide security policies aligned to regulatory requirements."
+      },
+      {
+        "name": "Customer-specific Policy Creation",
+        "description": "Tailored policies and standards for business units with specific compliance framework requirements."
+      },
+      {
+        "name": "Security Awareness Training",
+        "description": "Multi-channel security awareness programs including webinars, e-learning, and in-person sessions."
+      },
+      {
+        "name": "Phishing Test Campaigns",
+        "description": "Simulated phishing campaigns to measure and improve employee susceptibility to social engineering."
+      },
+      {
+        "name": "High Risk & Executive Training",
+        "description": "Targeted training for high-risk users and executives based on threat intelligence and role-based risk."
+      },
+      {
+        "name": "Cyber Heroes Program",
+        "description": "Ambassador program that embeds security champions within business units to drive cultural change."
+      },
+      {
+        "name": "Developer Training",
+        "description": "Secure coding and application security training for engineering teams."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, 9–5 EST"
+    },
+    "contact": {
+      "email": "GRC@Hearst.com",
+      "team": "GRC / Security Awareness"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "mdr",
+    "name": "Managed Detection and Response Program",
+    "category": "Security",
+    "tags": [
+      "security",
+      "soc",
+      "monitoring",
+      "detection",
+      "response",
+      "incident",
+      "mdr"
+    ],
+    "serviceType": "Program",
+    "icon": "Eye",
+    "owner": {
+      "name": "Antoine Hopkins",
+      "email": "Antoine.Hopkins@Hearst.com"
+    },
+    "summary": "Around-the-clock monitoring, detection, and incident response to safeguard critical systems and data through advanced analytics, proactive threat hunting, and expert-led investigations.",
+    "features": [
+      {
+        "name": "24/7 Security Monitoring and Alerting",
+        "description": "Continuous monitoring of security events across endpoints, network, and cloud with real-time alerting."
+      },
+      {
+        "name": "Alert Triage and Threat Investigation",
+        "description": "Expert analysis of security alerts to separate true positives from noise and escalate confirmed threats."
+      },
+      {
+        "name": "Coordinated Incident Reporting and Response",
+        "description": "Structured incident response with defined escalation paths and stakeholder communication."
+      },
+      {
+        "name": "Incident Readiness Exercises",
+        "description": "Tabletop exercises and simulations to test and improve organizational incident response capabilities."
+      },
+      {
+        "name": "Containment and Threat Mitigation",
+        "description": "Rapid containment actions to limit blast radius and eradicate threats from the environment."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "15 min Critical / 30 min High / 60 min Medium / 120 min Low",
+      "resolutionTime": "2 hours (recurring review)",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Antoine.Hopkins@Hearst.com",
+      "team": "Security Operations"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "master-data-management",
+    "name": "Master Data Management",
+    "category": "Data",
+    "tags": [
+      "data",
+      "mdm",
+      "governance",
+      "quality",
+      "integration",
+      "single source of truth"
+    ],
+    "serviceType": "Platform",
+    "icon": "DatabaseZap",
+    "owner": {
+      "name": "Theodora Bakker",
+      "email": "theodora.bakker@hearst.com"
+    },
+    "summary": "Unified, accurate, and trusted view of critical business data by centralizing and standardizing core data to eliminate duplication, reduce errors, and ensure consistency across all Hearst systems.",
+    "features": [
+      {
+        "name": "Single Source of Truth",
+        "description": "Centralized master records for critical business entities ensuring consistent data across all downstream systems."
+      },
+      {
+        "name": "Data Quality & Governance",
+        "description": "Automated quality checks, cleansing rules, and stewardship workflows to maintain data accuracy."
+      },
+      {
+        "name": "Scalability",
+        "description": "Platform architecture designed to scale with growing data volumes and expanding entity types."
+      },
+      {
+        "name": "Integration Capabilities",
+        "description": "Pre-built connectors and APIs to synchronize master data with ERP, CRM, analytics, and other systems."
+      },
+      {
+        "name": "Security & Compliance",
+        "description": "Role-based access controls and audit trails to meet data governance and regulatory requirements."
+      }
+    ],
+    "sla": {
+      "availability": "99.0%",
+      "responseTime": "Tier dependent",
+      "resolutionTime": "Tier dependent",
+      "supportHours": "Tier dependent"
+    },
+    "contact": {
+      "email": "theodora.bakker@hearst.com",
+      "team": "Master Data Management"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "mediaos-training",
+    "name": "MediaOS Training",
+    "category": "Applications",
+    "tags": [
+      "training",
+      "mediaos",
+      "magazines",
+      "onboarding",
+      "documentation"
+    ],
+    "serviceType": "Consulting",
+    "icon": "Monitor",
+    "owner": {
+      "name": "Lisa Dasher",
+      "email": "Lisa.Dasher@Hearst.com"
+    },
+    "summary": "Supports Hearst Magazines employees in adopting and effectively using MediaOS through targeted training, clear communication, and easy-to-access resources via virtual instructor-led sessions and coordinated messaging.",
+    "features": [
+      {
+        "name": "Instructor-Led Training",
+        "description": "Virtual instructor-led sessions designed around MediaOS workflows and specific Magazines team roles."
+      },
+      {
+        "name": "End-User Training Resources & Documentation",
+        "description": "Self-service guides, quick reference cards, and documentation for ongoing learning and new employee onboarding."
+      },
+      {
+        "name": "End-User Communications",
+        "description": "Coordinated communications keeping Magazines teams informed of MediaOS updates, releases, and training schedules."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, business hours"
+    },
+    "contact": {
+      "email": "Lisa.Dasher@Hearst.com",
+      "team": "Training"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "mobile-application-management",
+    "name": "Mobile Application Management",
+    "category": "Applications",
+    "tags": [
+      "mobile",
+      "mdm",
+      "byod",
+      "security",
+      "ios",
+      "android",
+      "endpoint"
+    ],
+    "serviceType": "Platform",
+    "icon": "Smartphone",
+    "owner": {
+      "name": "Ian Jones",
+      "email": "IJones@Hearst.com"
+    },
+    "summary": "Secures and enables IT control over managed applications on end users' corporate and personal smartphones and tablets through containerization, policy enforcement, and MFA/SSO integration.",
+    "features": [
+      {
+        "name": "Containerization",
+        "description": "Separation of corporate applications and data from personal content on BYOD devices."
+      },
+      {
+        "name": "Security and Compliance",
+        "description": "Policy-driven device compliance checks ensuring only healthy, compliant devices access corporate resources."
+      },
+      {
+        "name": "MFA and SSO",
+        "description": "Seamless and secure access to enterprise apps on mobile devices through integrated authentication."
+      },
+      {
+        "name": "Security Compliance with Hearst Policy",
+        "description": "Enforcement of Hearst security standards across all managed mobile endpoints."
+      },
+      {
+        "name": "Self Service",
+        "description": "Employee self-service portal for enrolling devices, accessing apps, and resolving common issues."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour",
+      "resolutionTime": "P1: 4h / P2: 6h / P3: 8h / P4: 5 days",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "IJones@Hearst.com",
+      "team": "Endpoint Engineering"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "network-infrastructure",
+    "name": "Network Infrastructure",
+    "category": "Network",
+    "tags": [
+      "network",
+      "firewall",
+      "switching",
+      "wireless",
+      "ztna",
+      "cloud",
+      "infrastructure"
+    ],
+    "serviceType": "Platform",
+    "icon": "Network",
+    "owner": {
+      "name": "Charlie Yi",
+      "email": "Charlie.Yi@Hearst.com"
+    },
+    "summary": "Adaptable core network services delivering secure and reliable connectivity through design, deployment, configuration, monitoring, and support using proven top-tier technologies.",
+    "features": [
+      {
+        "name": "Network Design",
+        "description": "Architecture and design of LAN, WAN, and cloud network topologies optimized for performance and resilience."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Continuous network monitoring with rapid incident response and tiered escalation."
+      },
+      {
+        "name": "Cloud Connectivity",
+        "description": "Dedicated connectivity to AWS, Azure, and GCP via Equinix aggregation centers."
+      },
+      {
+        "name": "Zero Trust Network Access (ZTNA)",
+        "description": "Identity-aware network access replacing traditional VPN for secure remote connectivity."
+      },
+      {
+        "name": "Firewall",
+        "description": "Next-generation firewall deployment and management providing perimeter and internal segmentation."
+      },
+      {
+        "name": "Switching & Wireless Infrastructure",
+        "description": "Enterprise switching and Wi-Fi infrastructure design, deployment, and lifecycle management."
+      },
+      {
+        "name": "DDI & Load Balancing",
+        "description": "DNS, DHCP, and IP address management alongside application delivery and load balancing services."
+      }
+    ],
+    "sla": {
+      "availability": "99.99%",
+      "responseTime": "1–2 hours",
+      "resolutionTime": "Tier1: 4h/24x7 | Tier2: 8h/NBD | Tier3: 24h/BH",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Charlie.Yi@Hearst.com",
+      "team": "Network Infrastructure"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "office-365-email",
+    "name": "Office 365 Email",
+    "category": "Applications",
+    "tags": [
+      "email",
+      "microsoft",
+      "office365",
+      "exchange",
+      "collaboration",
+      "migration"
+    ],
+    "serviceType": "Platform",
+    "icon": "Mail",
+    "owner": {
+      "name": "Randy Lutchna",
+      "email": "Randy.Lutchna@Hearst.com"
+    },
+    "summary": "Secure, reliable, and scalable cloud-based email solution providing seamless communication and collaboration including setup, migration, configuration, and ongoing support for Hearst staff.",
+    "features": [
+      {
+        "name": "Email Setup and Migration",
+        "description": "End-to-end mailbox provisioning and migration from legacy systems to Exchange Online."
+      },
+      {
+        "name": "Security and Compliance",
+        "description": "Email security policies, data loss prevention, and retention policies aligned to regulatory requirements."
+      },
+      {
+        "name": "MFA and SSO",
+        "description": "Secure email access protected by multi-factor authentication and single sign-on."
+      },
+      {
+        "name": "Mailbox Management",
+        "description": "Ongoing mailbox lifecycle management including shared mailboxes, distribution lists, and resource calendars."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Continuous monitoring of mail flow and service health with around-the-clock support."
+      },
+      {
+        "name": "Backup and Disaster Recovery",
+        "description": "Email backup and recovery capabilities to protect against accidental deletion and data loss."
+      },
+      {
+        "name": "Enhanced Collaboration Tools",
+        "description": "Integration with Teams, SharePoint, and other Microsoft 365 services for unified collaboration."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour",
+      "resolutionTime": "4h Critical / 8h High / 24h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Randy.Lutchna@Hearst.com",
+      "team": "Email Services"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "office-move",
+    "name": "Office Move IT Services",
+    "category": "Business Operations",
+    "tags": [
+      "office",
+      "relocation",
+      "network",
+      "av",
+      "infrastructure",
+      "project"
+    ],
+    "serviceType": "Consulting",
+    "icon": "Building2",
+    "owner": {
+      "name": "Lanie Klein",
+      "email": "Lainie.Klein@hearst.com"
+    },
+    "summary": "Comprehensive IT services for office relocations including infrastructure, network, AV, compute, and unified communications, ensuring a seamless transition with minimal downtime.",
+    "features": [
+      {
+        "name": "Move Requirements Capture",
+        "description": "Structured requirements gathering to inventory existing IT assets and define the target state for the new location."
+      },
+      {
+        "name": "Network Connectivity",
+        "description": "Circuit provisioning, network design, and infrastructure deployment for the new office."
+      },
+      {
+        "name": "Personal Compute",
+        "description": "Laptop, desktop, and peripheral procurement, configuration, and deployment for relocated staff."
+      },
+      {
+        "name": "AV Components",
+        "description": "Conference room AV design and installation including displays, cameras, and conferencing systems."
+      },
+      {
+        "name": "Unified Communications",
+        "description": "Phone, video, and collaboration system setup and migration for the new location."
+      },
+      {
+        "name": "User Experience",
+        "description": "End-user communication, training, and day-of support to ensure a smooth transition for employees."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Project-based"
+    },
+    "contact": {
+      "email": "Lainie.Klein@hearst.com",
+      "team": "Office Moves"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "bcdr",
+    "name": "Organizational Resilience BCDR",
+    "category": "Business Operations",
+    "tags": [
+      "bcdr",
+      "disaster recovery",
+      "business continuity",
+      "resilience",
+      "risk"
+    ],
+    "serviceType": "Program",
+    "icon": "RefreshCcw",
+    "owner": {
+      "name": "Anthony Ercolino",
+      "email": "bcdr@hearst.com"
+    },
+    "summary": "Comprehensive strategies enabling swift recovery from disruptions through strategic planning, risk mitigation, data protection, and recovery processes that maintain operational resilience across Hearst.",
+    "features": [
+      {
+        "name": "Risk Assessments",
+        "description": "Diligent business impact analysis and risk assessments to identify critical systems and recovery priorities."
+      },
+      {
+        "name": "Customized Strategies & Centralized Repository",
+        "description": "Tailored BC/DR plans stored in a centralized repository for rapid access during an incident."
+      },
+      {
+        "name": "Proactive Education and Training",
+        "description": "Regular training sessions and awareness programs to ensure staff are prepared to execute recovery plans."
+      },
+      {
+        "name": "Rigorous Testing and Maintenance",
+        "description": "Scheduled exercises and plan updates to validate recovery capabilities and maintain plan accuracy."
+      },
+      {
+        "name": "On-the-Ground Support",
+        "description": "Direct support during active incidents to coordinate recovery activities and stakeholder communications."
+      }
+    ],
+    "sla": {
+      "availability": "99.95%",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri business hours + on-call"
+    },
+    "contact": {
+      "email": "bcdr@hearst.com",
+      "team": "Organizational Resilience"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "patching-as-a-service",
+    "name": "Patching as a Service",
+    "category": "Cloud & Infrastructure",
+    "tags": [
+      "patching",
+      "security",
+      "windows",
+      "linux",
+      "macos",
+      "automation",
+      "compliance"
+    ],
+    "serviceType": "Platform",
+    "icon": "Wrench",
+    "owner": {
+      "name": "Jason Boulware",
+      "email": "Hts_Automation_Team@Hearst.com"
+    },
+    "summary": "Automated, schedule and policy-based security patching for Windows, Linux, and macOS via Automox Enterprise and NinjaOne, providing cross-platform endpoint hygiene at enterprise scale.",
+    "features": [
+      {
+        "name": "Cross-Platform Support",
+        "description": "Unified patch management across Windows, Linux, and macOS endpoints from a single platform."
+      },
+      {
+        "name": "Policy-Driven Automated Patching",
+        "description": "Configurable patch policies that automate deployment schedules aligned to business maintenance windows."
+      },
+      {
+        "name": "Compliance Reporting",
+        "description": "Dashboards and reports showing patch compliance rates by device group, OS, and business unit."
+      },
+      {
+        "name": "MFA and SSO",
+        "description": "Secure platform access via Okta-integrated authentication."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Continuous monitoring of patching jobs with alerting for failures and compliance drift."
+      },
+      {
+        "name": "User Training and Adoption",
+        "description": "Onboarding documentation and training to enable teams to manage their own patch policies."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Hts_Automation_Team@Hearst.com",
+      "team": "Automation Team"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "power-bi",
+    "name": "Power BI",
+    "category": "Applications",
+    "tags": [
+      "analytics",
+      "reporting",
+      "bi",
+      "microsoft",
+      "data",
+      "dashboards",
+      "power bi"
+    ],
+    "serviceType": "Platform",
+    "icon": "BarChart3",
+    "owner": {
+      "name": "Jayesh Gandhi",
+      "email": "jayesh.gandhi@hearst.com"
+    },
+    "summary": "Enterprise-standard platform for business intelligence, interactive reporting, and advanced data visualization with centralized administration, governance, enterprise-grade security, and expert consulting.",
+    "features": [
+      {
+        "name": "Administration",
+        "description": "Management of Power BI tenant, licenses, capacities, workspaces, and role-based access controls."
+      },
+      {
+        "name": "Governance",
+        "description": "Standardized data usage policies, dataset certification, and governance frameworks balancing self-service with compliance."
+      },
+      {
+        "name": "Consulting & Expert Support",
+        "description": "Advisory and technical support for report development with direct access to Microsoft experts for complex initiatives."
+      },
+      {
+        "name": "Training & Collaboration",
+        "description": "Customized training sessions for business units aligned with their specific reporting and analytics needs."
+      }
+    ],
+    "sla": {
+      "availability": "99.9% (Azure-hosted, geo-redundant)",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "jayesh.gandhi@hearst.com",
+      "team": "Enterprise Apps"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "power-platform",
+    "name": "Power Platform",
+    "category": "Applications",
+    "tags": [
+      "power apps",
+      "power automate",
+      "copilot",
+      "low-code",
+      "automation",
+      "microsoft"
+    ],
+    "serviceType": "Platform",
+    "icon": "Zap",
+    "owner": {
+      "name": "Jayesh Gandhi",
+      "email": "Jayesh.Gandhi@Hearst.com"
+    },
+    "summary": "Comprehensive services for the Microsoft Power Platform suite enabling organizations to analyze data, build solutions, automate workflows, and create virtual agents using low-code and no-code tools.",
+    "features": [
+      {
+        "name": "Governance & Security",
+        "description": "Data loss prevention policies, environment strategy, and access controls to govern Power Platform usage."
+      },
+      {
+        "name": "Application Development (Power Apps)",
+        "description": "Low-code app development support for building custom business applications without traditional development."
+      },
+      {
+        "name": "Workflow Automation (Power Automate)",
+        "description": "Process automation consulting and support for building flows that connect systems and eliminate manual tasks."
+      },
+      {
+        "name": "Copilot Studio & Virtual Agents",
+        "description": "Build and deploy conversational AI agents and chatbots using Microsoft Copilot Studio."
+      },
+      {
+        "name": "Consulting & Advisory",
+        "description": "Expert guidance on platform strategy, solution architecture, and best practices."
+      },
+      {
+        "name": "Citizen Development Support",
+        "description": "Enablement programs and guardrails empowering business users to build their own solutions safely."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "24/7"
+    },
+    "contact": {
+      "email": "Jayesh.Gandhi@Hearst.com",
+      "team": "Power Platform"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "pam",
+    "name": "Privileged Asset Management (PAM)",
+    "category": "Identity & Access",
+    "tags": [
+      "pam",
+      "privileged access",
+      "security",
+      "active directory",
+      "entra",
+      "identity"
+    ],
+    "serviceType": "Platform",
+    "icon": "KeyRound",
+    "owner": {
+      "name": "Mark Dowden",
+      "email": "Mark.Dowden@Hearst.com"
+    },
+    "summary": "Centralized, secure, and scalable management of network resources, user accounts, and privileged permissions across Hearst infrastructure using Microsoft Active Directory and Entra Directory.",
+    "features": [
+      {
+        "name": "Centralized Management",
+        "description": "Unified management of privileged accounts, credentials, and access across all Hearst environments."
+      },
+      {
+        "name": "Security",
+        "description": "Just-in-time privileged access, session recording, and credential vaulting to minimize privileged attack surface."
+      },
+      {
+        "name": "Standardization",
+        "description": "Consistent privileged access policies and naming conventions enforced across all business units."
+      },
+      {
+        "name": "Automation & Streamlining",
+        "description": "Automated credential rotation and access workflows to reduce administrative overhead."
+      },
+      {
+        "name": "24/7 Monitoring and Support",
+        "description": "Continuous monitoring of privileged account activity with alerting for anomalous behavior."
+      },
+      {
+        "name": "Backup and Disaster Recovery",
+        "description": "Credential vault backups and recovery procedures to ensure access continuity during incidents."
+      }
+    ],
+    "sla": {
+      "availability": "99.9%",
+      "responseTime": "Within 1 hour",
+      "resolutionTime": "4h Critical / 8h High / 24h Normal",
+      "supportHours": "24/7/365"
+    },
+    "contact": {
+      "email": "Mark.Dowden@Hearst.com",
+      "team": "Identity & Access Management"
+    },
+    "intakeMethod": "ServiceNow",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "product-management-services",
+    "name": "Product Management Services",
+    "category": "Business Operations",
+    "tags": [
+      "product management",
+      "roadmap",
+      "backlog",
+      "stakeholders",
+      "delivery"
+    ],
+    "serviceType": "Consulting",
+    "icon": "Clipboard",
+    "owner": {
+      "name": "Johann Rodriguez",
+      "email": "johannrodriguez@hearst.com"
+    },
+    "summary": "Ensures HTS delivers the right features at the right time by partnering with stakeholders to translate goals into requirements, prioritize enhancements, and guide development toward successful delivery.",
+    "features": [
+      {
+        "name": "Requirements & Alignment",
+        "description": "Structured requirements gathering and stakeholder alignment to ensure shared understanding before development begins."
+      },
+      {
+        "name": "Backlog Management & Prioritization",
+        "description": "Ongoing backlog grooming, sprint planning support, and priority frameworks to maximize delivery value."
+      },
+      {
+        "name": "Stakeholder Engagement",
+        "description": "Regular touchpoints, demos, and communications to keep stakeholders informed and engaged throughout delivery."
+      },
+      {
+        "name": "Product Lifecycle Support & Continuous Improvement",
+        "description": "Post-launch feedback loops, success metric tracking, and iteration planning for continuous product improvement."
+      }
+    ],
+    "sla": {
+      "availability": "N/A",
+      "responseTime": "N/A",
+      "resolutionTime": "N/A",
+      "supportHours": "Mon–Fri, business hours"
+    },
+    "contact": {
+      "email": "johannrodriguez@hearst.com",
+      "team": "Product Management"
+    },
+    "intakeMethod": "Email",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  }
+]

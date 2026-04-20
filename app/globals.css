@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Class-based dark mode — @custom-variant overrides the built-in media-query dark variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-hearst-50:  #f0f4f8;
+  --color-hearst-100: #dde8f2;
+  --color-hearst-200: #b8cfe3;
+  --color-hearst-300: #8fb3d1;
+  --color-hearst-400: #6b97be;
+  --color-hearst-500: #5580a8;
+  --color-hearst-600: #4d6b8c;
+  --color-hearst-700: #3d5570;
+  --color-hearst-800: #2d3f54;
+  --color-hearst-900: #1d2a38;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* In @layer base so Tailwind utilities (including dark: variants) can override it */
+@layer base {
+  body {
+    background: #f8fafc;
+    color: #0f172a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

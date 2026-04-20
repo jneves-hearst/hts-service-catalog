@@ -1,65 +1,86 @@
-import Image from "next/image";
+import Image from "next/image"
+import { readServices } from "@/lib/services"
+import { CatalogClient } from "@/components/catalog/CatalogClient"
+import { ThemeToggle } from "@/components/ui/ThemeToggle"
+import { Settings } from "lucide-react"
+import Link from "next/link"
 
-export default function Home() {
+export default async function HomePage() {
+  const services = await readServices()
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen flex-col">
+
+      {/* Top nav — white, sticky */}
+      <header className="sticky top-0 z-30 border-b border-gray-200 bg-white/95 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/95">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/Logo.png"
+              alt="Hearst"
+              width={110}
+              height={32}
+              className="object-contain"
+              priority
+            />
+            <div className="border-l border-gray-200 pl-4 dark:border-gray-700">
+              <p className="text-sm font-semibold leading-none text-gray-900 dark:text-gray-100">HTS Service Catalog</p>
+              <p className="mt-0.5 text-xs leading-tight text-gray-400 dark:text-gray-500">Hearst Technology Services</p>
+            </div>
+          </div>
+          <Link
+            href="/admin"
+            className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+          >
+            <Settings size={14} />
+            Admin
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero banner image */}
+      <div className="relative h-32 w-full overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/Header.png"
+          alt=""
+          fill
+          className="object-cover object-center"
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+      </div>
+
+      {/* Page title strip */}
+      <div className="border-b border-gray-100 bg-white px-6 py-7 dark:border-gray-800 dark:bg-gray-900">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-1.5 text-2xl font-bold text-gray-900 dark:text-gray-100">
+            Find the right service for your needs
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400">
+            Browse {services.length} services across IT infrastructure, security, data, and business operations.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </div>
+
+      {/* Catalog */}
+      <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-8">
+        <CatalogClient services={services} />
       </main>
+
+      {/* Footer */}
+      <footer className="relative overflow-hidden border-t border-gray-100 dark:border-gray-800">
+        <Image
+          src="/Footer.png"
+          alt=""
+          width={1200}
+          height={60}
+          className="h-auto w-full object-cover dark:opacity-60"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-xs text-gray-400">Hearst Technology Services · Service Catalog</p>
+        </div>
+      </footer>
+
+      <ThemeToggle />
     </div>
-  );
+  )
 }
