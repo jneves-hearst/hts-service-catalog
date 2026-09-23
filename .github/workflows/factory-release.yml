@@ -9,7 +9,7 @@ on:
       candidate_sha: { required: true, type: string }
       candidate_branch: { required: true, type: string }
       validation_run_id: { required: true, type: string }
-permissions: { contents: read, actions: read }
+permissions: { contents: read, actions: read, id-token: write }
 concurrency:
   group: factory-amplify-production
   cancel-in-progress: false
@@ -31,8 +31,7 @@ jobs:
             if (data.conclusion !== 'success' || data.display_title !== process.env.EXPECTED_TITLE || data.path !== '.github/workflows/factory-validate.yml' || data.event !== 'workflow_dispatch') throw new Error('Untrusted validation run');
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
       - name: Deploy Amplify production
         env:
