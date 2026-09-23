@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState, FormEvent } from "react"
 import { Lock } from "lucide-react"
 import { Button } from "@/components/ui/Button"
@@ -73,9 +74,9 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-4 text-center text-xs text-gray-400">
-          <a href="/" className="hover:text-hearst-600 hover:underline">
+          <Link href="/" className="hover:text-hearst-600 hover:underline">
             ← Back to Service Catalog
-          </a>
+          </Link>
         </p>
       </div>
     </div>

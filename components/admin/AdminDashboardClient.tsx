@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { AdminProvider } from "@/context/AdminContext"
 import { ServiceTable } from "./ServiceTable"
@@ -29,13 +30,13 @@ function AdminNav() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <a
+          <Link
             href="/"
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             <ExternalLink size={13} />
             View Catalog
-          </a>
+          </Link>
           <button
             onClick={handleLogout}
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"

@@ -28,16 +28,18 @@ export function ServiceDetailPanel() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    if (isDetailOpen) {
-      requestAnimationFrame(() => setVisible(true))
-    } else {
-      setVisible(false)
-    }
+    const frame = requestAnimationFrame(() => setVisible(isDetailOpen))
+    return () => cancelAnimationFrame(frame)
   }, [isDetailOpen])
 
-  useEffect(() => {
+  // Reset to the overview tab when the panel opens or a different service is shown.
+  // Deriving during render (instead of in an effect) avoids a cascading re-render.
+  const tabResetKey = `${isDetailOpen}:${selectedService?.id ?? ""}`
+  const [lastTabResetKey, setLastTabResetKey] = useState(tabResetKey)
+  if (tabResetKey !== lastTabResetKey) {
+    setLastTabResetKey(tabResetKey)
     if (isDetailOpen) setActiveTab("overview")
-  }, [selectedService, isDetailOpen])
+  }
 
   useEffect(() => {
     if (!isDetailOpen) return
