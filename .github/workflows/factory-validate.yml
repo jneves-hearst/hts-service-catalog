@@ -63,15 +63,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           AMPLIFY_QA_BRANCH: ${{ vars.AMPLIFY_QA_BRANCH }}
           CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+          CANDIDATE_BRANCH: ${{ inputs.candidate_branch }}
         run: |
           set -euo pipefail
           [[ "$AMPLIFY_QA_BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo 'Invalid Amplify QA branch'; exit 1; }
-          current_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_QA_BRANCH}" --jq '.object.sha')
-          if [[ "$current_sha" != "$CANDIDATE_SHA" ]]; then
-            gh api --method PATCH \
-              "repos/${GITHUB_REPOSITORY}/git/refs/heads/${AMPLIFY_QA_BRANCH}" \
-              -f sha="$CANDIDATE_SHA" >/dev/null
-          fi
+          [[ "$AMPLIFY_QA_BRANCH" != "$GITHUB_REF_NAME" ]] || { echo 'QA branch must differ from trusted workflow ref'; exit 1; }
+          [[ "$CANDIDATE_BRANCH" =~ ^codex/factory-[a-f0-9-]+-[01]$ ]] || { echo 'Invalid candidate branch'; exit 1; }
+          candidate_ref_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${CANDIDATE_BRANCH}" --jq '.object.sha')
+          [[ "$candidate_ref_sha" == "$CANDIDATE_SHA" ]] || {
+            echo "Candidate branch does not resolve to candidate $CANDIDATE_SHA (actual $candidate_ref_sha)"
+            exit 1
+          }
+          gh api --method PATCH \
+            "repos/${GITHUB_REPOSITORY}/git/refs/heads/${AMPLIFY_QA_BRANCH}" \
+            -f sha="$CANDIDATE_SHA" -F force=true >/dev/null
           promoted_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_QA_BRANCH}" --jq '.object.sha')
           [[ "$promoted_sha" == "$CANDIDATE_SHA" ]] || {
             echo "QA branch did not resolve to candidate $CANDIDATE_SHA (actual $promoted_sha)"
