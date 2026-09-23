@@ -1,0 +1,105 @@
+# Trusted factory validation. Protect this file and .factory/ with CODEOWNERS.
+name: Factory validation
+run-name: factory-validate-${{ inputs.job_id }}-${{ inputs.attempt }}-${{ inputs.candidate_sha }}
+on:
+  workflow_dispatch:
+    inputs:
+      job_id: { required: true, type: string }
+      attempt: { required: true, type: string }
+      candidate_sha: { required: true, type: string }
+      candidate_branch: { required: true, type: string }
+permissions: { contents: read, actions: write }
+concurrency:
+  group: factory-amplify-qa
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: factory-qa
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: trusted, persist-credentials: false }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.candidate_sha }}
+          path: candidate
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify candidate boundary
+        working-directory: candidate
+        env:
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+          CANDIDATE_BRANCH: ${{ inputs.candidate_branch }}
+        run: |
+          set -euo pipefail
+          [[ "$CANDIDATE_SHA" =~ ^[a-f0-9]{40}$ ]] || { echo "Invalid SHA"; exit 1; }
+          [[ "$CANDIDATE_BRANCH" =~ ^codex/factory-[a-f0-9-]+-[01]$ ]] || { echo "Invalid candidate branch"; exit 1; }
+          trusted_sha=$(git -C ../trusted rev-parse HEAD)
+          changed=$(git diff --name-only "$trusted_sha" "$CANDIDATE_SHA")
+          if printf '%s\n' "$changed" | grep -Eq '^\.github/|^\.factory/'; then
+            echo 'Protected factory paths changed'; exit 1
+          fi
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install dependencies
+        working-directory: candidate
+        run: npm ci --ignore-scripts
+      - name: Lint and test
+        working-directory: candidate
+        run: |
+          npm run lint --if-present
+          npm test --if-present
+      - name: Build application
+        working-directory: candidate
+        run: npm run build --if-present
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: Deploy Amplify QA
+        env:
+          AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
+          AMPLIFY_QA_BRANCH: ${{ vars.AMPLIFY_QA_BRANCH }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$AMPLIFY_APP_ID" =~ ^[a-z0-9-]+$ ]] || { echo 'Invalid Amplify app ID'; exit 1; }
+          [[ "$AMPLIFY_QA_BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo 'Invalid Amplify QA branch'; exit 1; }
+          job_id=$(aws amplify start-job --app-id "$AMPLIFY_APP_ID" --branch-name "$AMPLIFY_QA_BRANCH" --job-type RELEASE --commit-id "$CANDIDATE_SHA" --commit-message "Factory QA $CANDIDATE_SHA" --query 'jobSummary.jobId' --output text)
+          for attempt in $(seq 1 60); do
+            status=$(aws amplify get-job --app-id "$AMPLIFY_APP_ID" --branch-name "$AMPLIFY_QA_BRANCH" --job-id "$job_id" --query 'job.summary.status' --output text)
+            echo "Amplify QA job $job_id: $status"
+            [[ "$status" == "SUCCEED" ]] && exit 0
+            [[ "$status" =~ ^(FAILED|CANCELLED|CANCELLING)$ ]] && exit 1
+            sleep 15
+          done
+          echo 'Amplify QA deployment timed out'; exit 1
+      - name: Playwright QA
+        working-directory: trusted/.factory
+        env:
+          AMPLIFY_QA_URL: ${{ vars.AMPLIFY_QA_URL }}
+          FACTORY_JOB_ID: ${{ inputs.job_id }}
+          FACTORY_ATTEMPT: ${{ inputs.attempt }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          npm install --no-save --ignore-scripts @playwright/test
+          npx playwright install --with-deps chromium
+          npx playwright test --config=playwright.config.mjs --forbid-only
+      - name: Upload QA screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: factory-evidence-${{ inputs.job_id }}-${{ inputs.attempt }}-${{ inputs.candidate_sha }}
+          path: trusted/.factory/qa-evidence/
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: factory-${{ inputs.job_id }}-${{ inputs.attempt }}-${{ inputs.candidate_sha }}
+          path: trusted/.factory/playwright-report/
+          if-no-files-found: error
+          retention-days: 14

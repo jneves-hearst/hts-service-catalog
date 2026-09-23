@@ -1,0 +1,54 @@
+# Trusted production release. Protect this file and require reviewers on factory-release.
+name: Factory release
+run-name: factory-release-${{ inputs.job_id }}-${{ inputs.attempt }}-${{ inputs.candidate_sha }}
+on:
+  workflow_dispatch:
+    inputs:
+      job_id: { required: true, type: string }
+      attempt: { required: true, type: string }
+      candidate_sha: { required: true, type: string }
+      candidate_branch: { required: true, type: string }
+      validation_run_id: { required: true, type: string }
+permissions: { contents: read, actions: read }
+concurrency:
+  group: factory-amplify-production
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: factory-release
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: trusted, persist-credentials: false }
+      - uses: actions/github-script@v7
+        env:
+          VALIDATION_RUN: ${{ inputs.validation_run_id }}
+          EXPECTED_TITLE: factory-validate-${{ inputs.job_id }}-${{ inputs.attempt }}-${{ inputs.candidate_sha }}
+        with:
+          script: |
+            const { data } = await github.rest.actions.getWorkflowRun({ ...context.repo, run_id: Number(process.env.VALIDATION_RUN) });
+            if (data.conclusion !== 'success' || data.display_title !== process.env.EXPECTED_TITLE || data.path !== '.github/workflows/factory-validate.yml' || data.event !== 'workflow_dispatch') throw new Error('Untrusted validation run');
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: Deploy Amplify production
+        env:
+          AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
+          AMPLIFY_PRODUCTION_BRANCH: ${{ vars.AMPLIFY_PRODUCTION_BRANCH }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$AMPLIFY_APP_ID" =~ ^[a-z0-9-]+$ ]] || { echo 'Invalid Amplify app ID'; exit 1; }
+          [[ "$AMPLIFY_PRODUCTION_BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo 'Invalid production branch'; exit 1; }
+          job_id=$(aws amplify start-job --app-id "$AMPLIFY_APP_ID" --branch-name "$AMPLIFY_PRODUCTION_BRANCH" --job-type RELEASE --commit-id "$CANDIDATE_SHA" --commit-message "Factory production $CANDIDATE_SHA" --query 'jobSummary.jobId' --output text)
+          for attempt in $(seq 1 60); do
+            status=$(aws amplify get-job --app-id "$AMPLIFY_APP_ID" --branch-name "$AMPLIFY_PRODUCTION_BRANCH" --job-id "$job_id" --query 'job.summary.status' --output text)
+            echo "Amplify production job $job_id: $status"
+            [[ "$status" == "SUCCEED" ]] && exit 0
+            [[ "$status" =~ ^(FAILED|CANCELLED|CANCELLING)$ ]] && exit 1
+            sleep 15
+          done
+          echo 'Amplify production deployment timed out'; exit 1

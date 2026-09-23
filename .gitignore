@@ -40,6 +40,11 @@ yarn-error.log*
 .amplify/
 amplify_outputs*
 
+# software factory QA artifacts
+.factory/qa-evidence/
+.factory/playwright-report/
+.factory/test-results/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
