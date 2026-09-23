@@ -9,7 +9,7 @@ on:
       candidate_sha: { required: true, type: string }
       candidate_branch: { required: true, type: string }
       validation_run_id: { required: true, type: string }
-permissions: { contents: read, actions: read, id-token: write }
+permissions: { contents: write, actions: read, id-token: write }
 concurrency:
   group: factory-amplify-production
   cancel-in-progress: false
@@ -29,6 +29,26 @@ jobs:
           script: |
             const { data } = await github.rest.actions.getWorkflowRun({ ...context.repo, run_id: Number(process.env.VALIDATION_RUN) });
             if (data.conclusion !== 'success' || data.display_title !== process.env.EXPECTED_TITLE || data.path !== '.github/workflows/factory-validate.yml' || data.event !== 'workflow_dispatch') throw new Error('Untrusted validation run');
+      - name: Promote approved candidate to production branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AMPLIFY_PRODUCTION_BRANCH: ${{ vars.AMPLIFY_PRODUCTION_BRANCH }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$AMPLIFY_PRODUCTION_BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo 'Invalid Amplify production branch'; exit 1; }
+          current_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_PRODUCTION_BRANCH}" --jq '.object.sha')
+          if [[ "$current_sha" != "$CANDIDATE_SHA" ]]; then
+            gh api --method PATCH \
+              "repos/${GITHUB_REPOSITORY}/git/refs/heads/${AMPLIFY_PRODUCTION_BRANCH}" \
+              -f sha="$CANDIDATE_SHA" >/dev/null
+          fi
+          promoted_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_PRODUCTION_BRANCH}" --jq '.object.sha')
+          [[ "$promoted_sha" == "$CANDIDATE_SHA" ]] || {
+            echo "Production branch did not resolve to candidate $CANDIDATE_SHA (actual $promoted_sha)"
+            exit 1
+          }
+          echo "Promoted approved candidate $CANDIDATE_SHA to $AMPLIFY_PRODUCTION_BRANCH"
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}

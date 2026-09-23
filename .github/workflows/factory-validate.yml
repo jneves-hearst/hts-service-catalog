@@ -8,7 +8,7 @@ on:
       attempt: { required: true, type: string }
       candidate_sha: { required: true, type: string }
       candidate_branch: { required: true, type: string }
-permissions: { contents: read, actions: write, id-token: write }
+permissions: { contents: write, actions: write, id-token: write }
 concurrency:
   group: factory-amplify-qa
   cancel-in-progress: false
@@ -58,6 +58,26 @@ jobs:
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
+      - name: Promote candidate to Amplify QA branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AMPLIFY_QA_BRANCH: ${{ vars.AMPLIFY_QA_BRANCH }}
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$AMPLIFY_QA_BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo 'Invalid Amplify QA branch'; exit 1; }
+          current_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_QA_BRANCH}" --jq '.object.sha')
+          if [[ "$current_sha" != "$CANDIDATE_SHA" ]]; then
+            gh api --method PATCH \
+              "repos/${GITHUB_REPOSITORY}/git/refs/heads/${AMPLIFY_QA_BRANCH}" \
+              -f sha="$CANDIDATE_SHA" >/dev/null
+          fi
+          promoted_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${AMPLIFY_QA_BRANCH}" --jq '.object.sha')
+          [[ "$promoted_sha" == "$CANDIDATE_SHA" ]] || {
+            echo "QA branch did not resolve to candidate $CANDIDATE_SHA (actual $promoted_sha)"
+            exit 1
+          }
+          echo "Promoted candidate $CANDIDATE_SHA to $AMPLIFY_QA_BRANCH"
       - name: Deploy Amplify QA
         env:
           AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
