@@ -1,0 +1,190 @@
+{
+  "name": "Service Catalog left-side theme toggle",
+  "criteria": [
+    "The theme toggle is visible in the left-side region of the Service Catalog.",
+    "Selecting the toggle changes the application theme.",
+    "The selected theme persists after refresh.",
+    "The theme control has an accessible label describing its current action.",
+    "The theme control supports keyboard activation with Enter and Space.",
+    "Existing catalog functionality remains usable through a real search interaction and continues rendering catalog content."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "button.left-6"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "css",
+        "value": "input"
+      },
+      "value": "zzzz-no-match"
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Showing 0 services",
+        "exact": true
+      },
+      "value": "Showing 0 services"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-light-left-toggle"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-dark-left-toggle"
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-keyboard-dark-left-toggle"
+    }
+  ]
+}
