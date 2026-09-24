@@ -7,6 +7,7 @@
     "The toggle exposes a meaningful accessible name through its semantic button label.",
     "The toggle supports keyboard focus and activation with both Enter and Space.",
     "The Service Catalog remains loaded and its catalog content remains visible after theme changes.",
+    "A primary catalog interaction remains usable after a theme change, with selecting the Security category producing an active filter state.",
     "The browser flow covers theme transitions, persistence restoration, accessible labeling, keyboard activation, and a catalog smoke check."
   ],
   "steps": [
@@ -79,6 +80,33 @@
         "role": "button",
         "name": "Switch to light mode",
         "exact": true
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Security",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Security",
+        "exact": true
+      },
+      "attribute": "aria-pressed",
+      "expected": "true"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
       }
     },
     {
