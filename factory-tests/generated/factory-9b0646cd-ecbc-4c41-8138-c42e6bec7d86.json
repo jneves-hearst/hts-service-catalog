@@ -1,0 +1,229 @@
+{
+  "name": "Service Catalog dark mode toggle",
+  "criteria": [
+    "The existing dark mode toggle renders as a single accessible button on the left side of the Service Catalog.",
+    "Activating the toggle changes the application theme and updates the visible control state.",
+    "The selected dark theme persists after a page refresh.",
+    "The control has a meaningful accessible label.",
+    "The control supports keyboard activation with Enter and Space.",
+    "Existing catalog content remains available after the layout and theme interactions."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "css",
+        "value": "html"
+      },
+      "attribute": "class",
+      "expected": "h-full antialiased"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "attribute": "class",
+      "expected": "fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 bg-gray-900 text-yellow-300 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white"
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-toggle-left-light"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "css",
+        "value": "html"
+      },
+      "attribute": "class",
+      "expected": "h-full antialiased dark"
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-toggle-left-dark"
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "css",
+        "value": "html"
+      },
+      "attribute": "class",
+      "expected": "h-full antialiased dark"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "css",
+        "value": "html"
+      },
+      "attribute": "class",
+      "expected": "h-full antialiased dark"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "css",
+        "value": "html"
+      },
+      "attribute": "class",
+      "expected": "h-full antialiased"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      },
+      "value": "Showing"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-after-theme-interactions"
+    }
+  ]
+}
