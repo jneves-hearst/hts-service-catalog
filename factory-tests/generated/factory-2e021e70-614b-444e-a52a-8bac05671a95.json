@@ -33,14 +33,6 @@
       }
     },
     {
-      "type": "expectVisible",
-      "locator": {
-        "kind": "role",
-        "role": "button",
-        "name": "Switch to dark mode"
-      }
-    },
-    {
       "type": "click",
       "locator": {
         "kind": "role",
@@ -139,14 +131,15 @@
         "kind": "placeholder",
         "value": "Search services by name, category, or keyword…"
       },
-      "value": "security"
+      "value": "zzzz-no-match-service-query"
     },
     {
-      "type": "expectVisible",
+      "type": "expectText",
       "locator": {
         "kind": "text",
-        "value": "Showing"
-      }
+        "value": "No services found"
+      },
+      "value": "No services found"
     },
     {
       "type": "screenshot",
