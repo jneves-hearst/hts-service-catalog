@@ -1,0 +1,183 @@
+{
+  "name": "Service Catalog left-side dark mode toggle and catalog regression",
+  "criteria": [
+    "The theme toggle is visible on the left side of the Service Catalog.",
+    "Selecting the toggle changes the application theme in both directions.",
+    "The selected theme persists after a page refresh.",
+    "The toggle exposes a meaningful accessible label.",
+    "The toggle supports keyboard activation with Enter and Space.",
+    "The Service Catalog remains loaded and its search interaction continues to produce and clear filtered results."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": ".left-6"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-light-left-toggle"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-dark-left-toggle-persisted"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "zzzz-no-match-10880"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "No services found",
+        "exact": true
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Clear search",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-search-restored"
+    }
+  ]
+}
