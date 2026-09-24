@@ -1,13 +1,13 @@
 {
-  "name": "Service Catalog left-side dark mode regression",
+  "name": "Service Catalog left-side dark mode regression with catalog smoke interaction",
   "criteria": [
-    "AC1: The theme toggle is visible and uses the left-side positioning class; the placement is also captured visually.",
-    "AC2: Activating the toggle changes its accessible action label and enables the html.dark theme marker.",
-    "AC3: The dark theme remains selected after a page reload.",
+    "AC1: The existing theme toggle is visible and uses the verified left-side positioning class; screenshots provide visual evidence that it remains usable without obscuring catalog content.",
+    "AC2: Activating the toggle changes the accessible action label and enables the exact html.dark theme marker, with light and dark screenshots capturing the visual change.",
+    "AC3: The selected dark theme remains active after a page reload, including its accessible label and html.dark marker.",
     "AC4: The toggle is exposed as a button with a non-empty accessible name describing the available theme action.",
-    "AC5: Enter and Space activate the toggle, preserve visible focus, and produce the expected theme and accessible-label changes.",
-    "AC6: Catalog heading and service-count content render in both the initial light theme and the alternate dark theme.",
-    "AC7: The complete page smoke flow renders successfully through the theme and catalog checks."
+    "AC5: Enter and Space activate the toggle, retain visible focus, and produce the expected theme and accessible-label changes.",
+    "AC6: Existing catalog heading and service-count content remain visible, and the existing catalog count surface can be interacted with successfully in both light and dark themes.",
+    "AC7: The complete declarative page smoke flow completes through initial rendering, theme switching, persistence, keyboard activation, and catalog checks."
   ],
   "steps": [
     {
@@ -36,6 +36,13 @@
       "locator": {
         "kind": "text",
         "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "main"
       }
     },
     {
@@ -70,7 +77,29 @@
     },
     {
       "type": "screenshot",
-      "name": "light-theme-left-toggle"
+      "name": "light-theme-left-toggle-and-catalog"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
     },
     {
       "type": "click",
@@ -113,8 +142,30 @@
       }
     },
     {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
       "type": "screenshot",
-      "name": "dark-theme-left-toggle"
+      "name": "dark-theme-left-toggle-and-catalog"
     },
     {
       "type": "reload"
@@ -133,6 +184,21 @@
       "locator": {
         "kind": "css",
         "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
       }
     },
     {
@@ -173,6 +239,28 @@
       }
     },
     {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
       "type": "press",
       "locator": {
         "kind": "role",
@@ -203,6 +291,13 @@
       "locator": {
         "kind": "css",
         "value": "html.dark"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
       }
     },
     {
