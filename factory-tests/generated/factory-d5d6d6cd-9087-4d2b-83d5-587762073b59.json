@@ -6,7 +6,7 @@
     "The selected dark theme persists after a page refresh.",
     "The toggle exposes an accessible label identifying the current theme action.",
     "The toggle supports keyboard activation and retains a visible focus indicator.",
-    "The catalog remains rendered after theme interactions."
+    "The catalog remains rendered and its result marker remains visible after actionable theme-control interactions."
   ],
   "steps": [
     {
@@ -103,20 +103,12 @@
       }
     },
     {
-      "type": "press",
+      "type": "click",
       "locator": {
         "kind": "role",
         "role": "button",
         "name": "Switch to light mode",
         "exact": true
-      },
-      "key": "Space"
-    },
-    {
-      "type": "expectVisible",
-      "locator": {
-        "kind": "css",
-        "value": "button.left-6:focus-visible"
       }
     },
     {
@@ -143,8 +135,48 @@
       }
     },
     {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "button.left-6:focus-visible"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
       "type": "screenshot",
-      "name": "keyboard-light-theme"
+      "name": "keyboard-dark-theme"
     }
   ]
 }
