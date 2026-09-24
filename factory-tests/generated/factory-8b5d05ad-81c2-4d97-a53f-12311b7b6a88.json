@@ -6,7 +6,7 @@
     "The selected theme persists after refresh.",
     "The theme control has an accessible label describing its current action.",
     "The theme control supports keyboard activation with Enter and Space.",
-    "Existing catalog content remains rendered while the theme control is used."
+    "Existing catalog functionality remains usable through a real search interaction and continues rendering catalog content."
   ],
   "steps": [
     {
@@ -28,6 +28,31 @@
         "name": "Switch to dark mode",
         "exact": true
       }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "css",
+        "value": "input"
+      },
+      "value": "zzzz-no-match"
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Showing 0 services",
+        "exact": true
+      },
+      "value": "Showing 0 services"
     },
     {
       "type": "expectVisible",
