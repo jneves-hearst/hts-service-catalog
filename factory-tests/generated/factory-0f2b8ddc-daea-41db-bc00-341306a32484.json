@@ -1,0 +1,245 @@
+{
+  "name": "Service Catalog left-side dark mode toggle across layouts",
+  "criteria": [
+    "The dark mode toggle is visible on the left side of the Service Catalog at desktop and supported responsive widths, verified by visible-control assertions and layout screenshots.",
+    "Activating the toggle changes the document theme and accessible action label.",
+    "The selected dark theme remains applied after a page reload.",
+    "The toggle exposes a meaningful accessible label in both theme states.",
+    "The toggle can be reached through keyboard focus traversal and activated with Enter and Space while showing a visible focus indicator.",
+    "Existing catalog functionality remains usable, including search, result-count feedback, and the primary catalog content."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "main input"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "desktop-left-side-toggle-and-catalog"
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "css",
+        "value": "main input"
+      },
+      "value": "security"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "desktop-dark-theme-left-side-toggle"
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "main input"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "responsive-left-side-toggle-and-catalog"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "css",
+        "value": "body"
+      },
+      "key": "Shift+Tab"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "button[aria-label=\"Switch to dark mode\"]:focus-visible"
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "button[aria-label=\"Switch to light mode\"]:focus-visible"
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "main input"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    }
+  ]
+}
