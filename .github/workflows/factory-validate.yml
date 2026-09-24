@@ -40,6 +40,22 @@ jobs:
           if printf '%s\n' "$changed" | grep -Eq '^\.github/|^\.factory/'; then
             echo 'Protected factory paths changed'; exit 1
           fi
+      - name: Verify generated acceptance tests
+        working-directory: candidate
+        env:
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          trusted_sha=$(git -C ../trusted rev-parse HEAD)
+          mapfile -t generated < <(git diff --name-only "$trusted_sha" "$CANDIDATE_SHA" -- 'factory-tests/generated/*.json')
+          ((${#generated[@]} == 1)) || { echo 'Candidate must include exactly one generated acceptance test spec under factory-tests/generated/'; exit 1; }
+          mkdir -p ../trusted/.factory/tests/generated
+          for path in "${generated[@]}"; do
+            [[ "$path" =~ ^factory-tests/generated/factory-[a-f0-9-]+\.json$ ]] || { echo "Unsafe generated test path: $path"; exit 1; }
+            [[ -f "$path" && ! -L "$path" ]] || { echo "Generated test spec is not a regular file: $path"; exit 1; }
+            node ../trusted/.factory/factory-spec.mjs "$path"
+            cp -- "$path" "../trusted/.factory/tests/generated/$(basename "$path")"
+          done
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - name: Install dependencies
