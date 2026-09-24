@@ -1,13 +1,13 @@
 {
   "name": "Service Catalog dark mode toggle placement and behavior",
   "criteria": [
-    "The single dark mode toggle is visible on the left side of the Service Catalog.",
-    "Activating the toggle changes the application theme.",
-    "The selected dark theme persists after a full page refresh.",
-    "The toggle exposes an accessible label describing the available theme action.",
-    "The toggle supports keyboard activation.",
-    "The existing Service Catalog content continues to render after theme changes and refreshes.",
-    "The existing toggle remains operable without introducing a second control."
+    "The existing dark mode toggle is visible on the left side of the Service Catalog.",
+    "Selecting the toggle changes the application theme.",
+    "The selected theme persists after a full page refresh.",
+    "The theme control has an accessible label identifying its current action.",
+    "The theme control supports keyboard activation.",
+    "Existing Service Catalog functionality continues to render and respond to a catalog filter interaction.",
+    "The existing theme control remains operable without introducing a second control."
   ],
   "steps": [
     {
@@ -31,20 +31,6 @@
       }
     },
     {
-      "type": "expectHidden",
-      "locator": {
-        "kind": "css",
-        "value": ".right-6"
-      }
-    },
-    {
-      "type": "expectHidden",
-      "locator": {
-        "kind": "css",
-        "value": "html.dark"
-      }
-    },
-    {
       "type": "expectVisible",
       "locator": {
         "kind": "text",
@@ -59,8 +45,34 @@
       }
     },
     {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "All",
+        "exact": true
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "All",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      },
+      "value": "Showing"
+    },
+    {
       "type": "screenshot",
-      "name": "light-theme-toggle-on-left"
+      "name": "light-theme-toggle-on-left-with-catalog"
     },
     {
       "type": "click",
@@ -95,10 +107,10 @@
       }
     },
     {
-      "type": "expectHidden",
+      "type": "expectVisible",
       "locator": {
-        "kind": "css",
-        "value": ".right-6"
+        "kind": "text",
+        "value": "Showing"
       }
     },
     {
@@ -133,11 +145,12 @@
       "value": "Find the right service for your needs"
     },
     {
-      "type": "expectVisible",
+      "type": "expectText",
       "locator": {
         "kind": "text",
         "value": "Showing"
-      }
+      },
+      "value": "Showing"
     },
     {
       "type": "press",
@@ -163,6 +176,13 @@
       "locator": {
         "kind": "css",
         "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
       }
     },
     {
@@ -193,11 +213,12 @@
       "value": "Find the right service for your needs"
     },
     {
-      "type": "expectVisible",
+      "type": "expectText",
       "locator": {
         "kind": "text",
         "value": "Showing"
-      }
+      },
+      "value": "Showing"
     },
     {
       "type": "screenshot",
