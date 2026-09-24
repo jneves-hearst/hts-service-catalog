@@ -77,8 +77,24 @@ export default async function HomePage() {
           height={60}
           className="h-auto w-full object-cover dark:opacity-60"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-6">
           <p className="text-xs text-gray-400">Hearst Technology Services · Service Catalog</p>
+          <a
+            href="https://hearstet.service-now.com/hearsttech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm text-xs font-medium text-gray-600 underline decoration-gray-400 underline-offset-2 transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 focus-visible:ring-offset-2 dark:text-gray-200 dark:decoration-gray-500 dark:hover:text-white"
+          >
+            ServiceNow
+          </a>
+          <a
+            href="https://htsintake.hearst.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm text-xs font-medium text-gray-600 underline decoration-gray-400 underline-offset-2 transition-colors hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 focus-visible:ring-offset-2 dark:text-gray-200 dark:decoration-gray-500 dark:hover:text-white"
+          >
+            HTS Intake Portal
+          </a>
         </div>
       </footer>
 

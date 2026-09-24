@@ -1,0 +1,206 @@
+{
+  "name": "Footer links and catalog smoke coverage",
+  "criteria": [
+    "AC1: The footer exposes a ServiceNow link with the exact approved destination and the visual screenshot includes the footer links.",
+    "AC2: The footer exposes an HTS Intake Portal link with the exact approved destination and the visual screenshot includes the footer links.",
+    "AC3: Both footer links specify target=_blank so activation requests a new tab without replacing the catalog page.",
+    "AC4: Both footer links can receive keyboard focus and their focus-visible states are captured.",
+    "AC5: Both new-tab links specify rel=\"noopener noreferrer\" for safe opener handling.",
+    "AC6: The existing catalog heading, footer text, search input, and Showing result marker remain available after a real search interaction."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Hearst Technology Services · Service Catalog",
+        "exact": true
+      },
+      "value": "Hearst Technology Services · Service Catalog"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "https://hearstet.service-now.com/hearsttech"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      },
+      "attribute": "target",
+      "expected": "_blank"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      },
+      "attribute": "rel",
+      "expected": "noopener noreferrer"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "https://htsintake.hearst.com"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      },
+      "attribute": "target",
+      "expected": "_blank"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      },
+      "attribute": "rel",
+      "expected": "noopener noreferrer"
+    },
+    {
+      "type": "screenshot",
+      "name": "footer-links"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "a[href=\"https://hearstet.service-now.com/hearsttech\"]:focus-visible"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "servicenow-focus"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "a[href=\"https://htsintake.hearst.com\"]:focus-visible"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "intake-portal-focus"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "security"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing",
+        "exact": false
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "__factory_no_match__"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "No services found",
+        "exact": true
+      }
+    }
+  ]
+}
