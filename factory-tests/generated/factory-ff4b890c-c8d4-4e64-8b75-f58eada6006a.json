@@ -1,12 +1,12 @@
 {
   "name": "Service Catalog left-side dark mode toggle",
   "criteria": [
-    "The existing theme toggle is visible on the left side without a duplicate control.",
-    "Selecting the toggle changes the application theme and its accessible state.",
+    "The existing theme toggle is visible on the left side and is uniquely rendered without a duplicate control.",
+    "Selecting the toggle changes the application theme and updates its accessible state.",
     "The selected dark theme remains active after a page refresh.",
     "The toggle exposes a meaningful accessible button label.",
     "The toggle supports Enter and Space keyboard activation with visible focus styling.",
-    "The Service Catalog remains loaded and its available navigation remains usable."
+    "The Admin navigation remains usable and the Service Catalog content remains loaded after returning to the catalog."
   ],
   "steps": [
     {
@@ -18,7 +18,8 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to dark mode"
+        "name": "Switch to dark mode",
+        "exact": true
       }
     },
     {
@@ -33,7 +34,8 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to dark mode"
+        "name": "Switch to dark mode",
+        "exact": true
       },
       "attribute": "aria-label",
       "expected": "Switch to dark mode"
@@ -43,19 +45,32 @@
       "locator": {
         "kind": "role",
         "role": "link",
-        "name": "Admin"
+        "name": "Admin",
+        "exact": true
       }
     },
     {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Admin",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "/admin"
+    },
+    {
       "type": "screenshot",
-      "name": "service-catalog-theme-toggle-left"
+      "name": "service-catalog-theme-toggle-left-light"
     },
     {
       "type": "click",
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to dark mode"
+        "name": "Switch to dark mode",
+        "exact": true
       }
     },
     {
@@ -70,7 +85,8 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to light mode"
+        "name": "Switch to light mode",
+        "exact": true
       }
     },
     {
@@ -78,10 +94,15 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to light mode"
+        "name": "Switch to light mode",
+        "exact": true
       },
       "attribute": "aria-label",
       "expected": "Switch to light mode"
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-theme-toggle-left-dark"
     },
     {
       "type": "reload"
@@ -98,7 +119,8 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to light mode"
+        "name": "Switch to light mode",
+        "exact": true
       }
     },
     {
@@ -106,7 +128,8 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to light mode"
+        "name": "Switch to light mode",
+        "exact": true
       },
       "key": "Enter"
     },
@@ -129,15 +152,21 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to dark mode"
+        "name": "Switch to dark mode",
+        "exact": true
       }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-theme-toggle-enter-focused"
     },
     {
       "type": "press",
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to dark mode"
+        "name": "Switch to dark mode",
+        "exact": true
       },
       "key": "Space"
     },
@@ -160,16 +189,34 @@
       "locator": {
         "kind": "role",
         "role": "button",
-        "name": "Switch to light mode"
+        "name": "Switch to light mode",
+        "exact": true
       }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-theme-toggle-space-focused"
     },
     {
       "type": "click",
       "locator": {
         "kind": "role",
         "role": "link",
-        "name": "Admin"
+        "name": "Admin",
+        "exact": true
       }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Admin"
+      },
+      "value": "Admin"
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-admin-navigation"
     },
     {
       "type": "goto",
@@ -184,11 +231,12 @@
       "value": "Find the right service for your needs"
     },
     {
-      "type": "expectVisible",
+      "type": "expectText",
       "locator": {
         "kind": "text",
         "value": "Showing"
-      }
+      },
+      "value": "Showing"
     }
   ]
 }
