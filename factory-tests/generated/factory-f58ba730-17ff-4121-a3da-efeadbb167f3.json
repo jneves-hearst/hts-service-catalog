@@ -1,0 +1,150 @@
+{
+  "name": "Service Catalog right-side dark mode toggle",
+  "criteria": [
+    "The existing theme toggle is visible on the right side of the Service Catalog.",
+    "Activating the toggle changes the application theme.",
+    "The selected theme persists after a page refresh.",
+    "The theme control exposes a meaningful accessible label.",
+    "The theme control supports keyboard activation.",
+    "Existing Service Catalog functionality continues to work after the layout change."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "button.fixed.right-6"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-toggle-right-light"
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…"
+      },
+      "value": "security"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "service-catalog-toggle-right-dark"
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "__factory_no_match__"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "No services found",
+        "exact": true
+      }
+    }
+  ]
+}
