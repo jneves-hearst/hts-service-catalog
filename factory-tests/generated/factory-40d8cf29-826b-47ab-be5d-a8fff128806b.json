@@ -1,0 +1,332 @@
+{
+  "name": "Service Catalog left-side dark mode regression with catalog smoke interaction",
+  "criteria": [
+    "AC1: The existing theme toggle is visible and uses the verified left-side positioning class; screenshots provide visual evidence that it remains usable without obscuring catalog content.",
+    "AC2: Activating the toggle changes the accessible action label and enables the exact html.dark theme marker, with light and dark screenshots capturing the visual change.",
+    "AC3: The selected dark theme remains active after a page reload, including its accessible label and html.dark marker.",
+    "AC4: The toggle is exposed as a button with a non-empty accessible name describing the available theme action.",
+    "AC5: Enter and Space activate the toggle, retain visible focus, and produce the expected theme and accessible-label changes.",
+    "AC6: Existing catalog heading and service-count content remain visible, and the existing catalog count surface can be interacted with successfully in both light and dark themes.",
+    "AC7: The complete declarative page smoke flow completes through initial rendering, theme switching, persistence, keyboard activation, and catalog checks."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      },
+      "value": "Find the right service for your needs"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "main"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "testId",
+        "value": "theme-toggle"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"theme-toggle\"].left-6"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "light-theme-left-toggle-and-catalog"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "dark-theme-left-toggle-and-catalog"
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "dark-theme-persisted-after-reload"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"theme-toggle\"]:focus-visible"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"theme-toggle\"]:focus-visible"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "text",
+        "value": "Find the right service for your needs",
+        "exact": true
+      },
+      "value": "Find the right service for your needs"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "keyboard-theme-and-catalog-regression"
+    }
+  ]
+}
