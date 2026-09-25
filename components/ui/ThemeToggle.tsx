@@ -40,9 +40,10 @@ export function ThemeToggle() {
 
   return (
     <button
+      data-testid="theme-toggle"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 bg-gray-900 text-yellow-300 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg shadow-sm transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 bg-gray-900 text-yellow-300 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white"
     >
       {isDark ? <Sun size={19} /> : <Moon size={19} />}
     </button>

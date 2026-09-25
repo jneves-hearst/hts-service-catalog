@@ -1,0 +1,232 @@
+{
+  "name": "Top-right navigation dark mode toggle",
+  "criteria": [
+    "The dark mode toggle is absent from its former fixed bottom-left location and is rendered in the top-right navigation.",
+    "Selecting the toggle switches between light and dark themes while preserving its accessible name and keyboard operability.",
+    "The selected theme persists across reloads in both dark and light states.",
+    "The toggle and existing Admin navigation control remain visible in the top-right navigation without visual overlap or unexpected displacement."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": ".fixed.bottom-6.left-6"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "testId",
+        "value": "top-right-navigation"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"top-right-navigation\"] [data-testid=\"theme-toggle\"]"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Admin",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "nav-light"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"top-right-navigation\"] [data-testid=\"theme-toggle\"]"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Admin",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "nav-dark"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Admin",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "theme-persisted-dark"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to light mode",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "reload"
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "css",
+        "value": "html.dark"
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "button",
+        "name": "Switch to dark mode",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "[data-testid=\"top-right-navigation\"] [data-testid=\"theme-toggle\"]"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "theme-persisted-light"
+    }
+  ]
+}
