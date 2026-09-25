@@ -1,0 +1,120 @@
+{
+  "name": "Privacy Notice and Terms of Use footer links",
+  "criteria": [
+    "The footer displays one visible link with the exact accessible name Privacy Notice.",
+    "The footer displays one visible link with the exact accessible name Terms of Use.",
+    "Both legal links use the shared footer link styling, including typography, color, transition, hover, focus, and dark-mode classes.",
+    "Both legal links use the temporary placeholder target # and do not expose final legal destinations.",
+    "Both links are keyboard reachable and show the footer focus indicator when activated by keyboard."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Privacy Notice",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Terms of Use",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Privacy Notice",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "#"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Terms of Use",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "#"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Privacy Notice",
+        "exact": true
+      },
+      "attribute": "class",
+      "expected": "text-xs text-gray-400 transition-colors hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 dark:text-gray-500 dark:hover:text-gray-300"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Terms of Use",
+        "exact": true
+      },
+      "attribute": "class",
+      "expected": "text-xs text-gray-400 transition-colors hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 dark:text-gray-500 dark:hover:text-gray-300"
+    },
+    {
+      "type": "screenshot",
+      "name": "footer-legal-links"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Privacy Notice",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "footer a[href=\"#\"]:focus-visible"
+      }
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Terms of Use",
+        "exact": true
+      },
+      "key": "Enter"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "footer a[href=\"#\"]:focus-visible"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "footer-keyboard-focus"
+    }
+  ]
+}
