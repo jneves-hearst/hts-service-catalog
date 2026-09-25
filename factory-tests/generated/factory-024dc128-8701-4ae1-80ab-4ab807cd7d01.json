@@ -1,0 +1,87 @@
+{
+  "name": "Footer link removal and catalog smoke test",
+  "criteria": [
+    "The footer has no accessible link named ServiceNow.",
+    "The footer has no accessible link named HTS Intake Portal.",
+    "The retained footer branding remains visible and the footer structure is captured for visual review without the removed links or dangling separators.",
+    "The catalog search input remains available and a search interaction leaves the catalog result marker visible.",
+    "The application serves the catalog page successfully with the retained footer and catalog controls visible."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Hearst Technology Services · Service Catalog",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "ServiceNow",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectHidden",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "HTS Intake Portal",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "footer-with-target-links-removed"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "security"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "Showing"
+      }
+    },
+    {
+      "type": "fill",
+      "locator": {
+        "kind": "placeholder",
+        "value": "Search services by name, category, or keyword…",
+        "exact": true
+      },
+      "value": "__factory_no_match__"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "text",
+        "value": "No services found",
+        "exact": true
+      }
+    }
+  ]
+}
