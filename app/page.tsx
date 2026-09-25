@@ -79,6 +79,18 @@ export default async function HomePage() {
         />
         <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-6">
           <p className="text-xs text-gray-400">Hearst Technology Services · Service Catalog</p>
+          <a
+            href="#"
+            className="text-xs text-gray-400 transition-colors hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500"
+          >
+            Privacy Notice
+          </a>
+          <a
+            href="#"
+            className="text-xs text-gray-400 transition-colors hover:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500"
+          >
+            Terms of Use
+          </a>
         </div>
       </footer>
 
