@@ -30,13 +30,20 @@ export default async function HomePage() {
               <p className="mt-0.5 text-xs leading-tight text-gray-400 dark:text-gray-500">Hearst Technology Services</p>
             </div>
           </div>
-          <Link
-            href="/admin"
-            className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+          <nav
+            aria-label="Top-right navigation"
+            data-testid="top-right-navigation"
+            className="flex shrink-0 items-center gap-2"
           >
-            <Settings size={14} />
-            Admin
-          </Link>
+            <Link
+              href="/admin"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+            >
+              <Settings size={14} />
+              Admin
+            </Link>
+            <ThemeToggle />
+          </nav>
         </div>
       </header>
 
@@ -93,8 +100,6 @@ export default async function HomePage() {
           </a>
         </div>
       </footer>
-
-      <ThemeToggle />
     </div>
   )
 }
