@@ -1,0 +1,94 @@
+{
+  "name": "HENTAPP-10906 Support mailto navigation",
+  "criteria": [
+    "A visible top-navigation link is labeled Support and has the accessible name Support.",
+    "Activating Support uses the exact mailto target mailto:julian.neves@hearst.com.",
+    "Keyboard activation coverage confirms Support is reachable with a visible focus indicator, and clicking it invokes the direct mailto action without an in-app support workflow.",
+    "No support form or ticketing UI is introduced; Support is represented as a direct mailto link rather than an in-app workflow."
+  ],
+  "steps": [
+    {
+      "type": "goto",
+      "path": "/"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      }
+    },
+    {
+      "type": "expectText",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      },
+      "value": "Support"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      },
+      "attribute": "aria-label",
+      "expected": "Support"
+    },
+    {
+      "type": "expectAttribute",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      },
+      "attribute": "href",
+      "expected": "mailto:julian.neves@hearst.com"
+    },
+    {
+      "type": "screenshot",
+      "name": "support_navigation"
+    },
+    {
+      "type": "press",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      },
+      "key": "Space"
+    },
+    {
+      "type": "expectVisible",
+      "locator": {
+        "kind": "css",
+        "value": "a[href=\"mailto:julian.neves@hearst.com\"]:focus-visible"
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "support_keyboard_focus"
+    },
+    {
+      "type": "click",
+      "locator": {
+        "kind": "role",
+        "role": "link",
+        "name": "Support",
+        "exact": true
+      }
+    },
+    {
+      "type": "screenshot",
+      "name": "support_mailto_activation"
+    }
+  ]
+}

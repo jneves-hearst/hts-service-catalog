@@ -30,13 +30,22 @@ export default async function HomePage() {
               <p className="mt-0.5 text-xs leading-tight text-gray-400 dark:text-gray-500">Hearst Technology Services</p>
             </div>
           </div>
-          <Link
-            href="/admin"
-            className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-          >
-            <Settings size={14} />
-            Admin
-          </Link>
+          <div className="flex items-center gap-1.5">
+            <a
+              href="mailto:julian.neves@hearst.com"
+              aria-label="Support"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearst-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+            >
+              Support
+            </a>
+            <Link
+              href="/admin"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+            >
+              <Settings size={14} />
+              Admin
+            </Link>
+          </div>
         </div>
       </header>
 
